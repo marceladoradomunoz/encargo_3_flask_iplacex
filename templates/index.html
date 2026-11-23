@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Menú principal de la aplicación -->
+    <main>
+
+        <a href="{{ url_for('ejercicio1') }}"
+           class="boton">
+            Ejercicio 1
+        </a>
+
+        <a href="{{ url_for('ejercicio2') }}"
+           class="boton">
+            Ejercicio 2
+        </a>
+
+    </main>
+
+    <!-- Pie de página independiente del menú -->
+    <footer style="
+        position: fixed;
+        bottom: 15px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        color: #777777;
+        font-family: Arial, Helvetica, sans-serif;
+    ">
+        Programa creado por MMD
+    </footer>
+
+</body>
+</html>

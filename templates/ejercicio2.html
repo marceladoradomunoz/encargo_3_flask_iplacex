@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Nombres</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navegación superior entre páginas -->
+    <nav class="navegacion-superior"
+         aria-label="Navegación entre ejercicios">
+
+        <ul class="navegacion-lista">
+
+            <li>
+                <a href="{{ url_for('inicio') }}"
+                   class="enlace-navegacion">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         aria-hidden="true">
+                        <path d="m3 10 9-7 9 7"/>
+                        <path d="M5 9v12h14V9"/>
+                        <path d="M9 21v-7h6v7"/>
+                    </svg>
+
+                    Home
+                </a>
+            </li>
+
+            <li class="separador-navegacion"
+                aria-hidden="true">
+                |
+            </li>
+
+            <li>
+                <a href="{{ url_for('ejercicio1') }}"
+                   class="enlace-navegacion">
+                    Ejercicio 1
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <!-- Formulario del Ejercicio 2 -->
+    <main class="formulario-nombres">
+
+        <h2>Formulario de Nombres</h2>
+
+        <form action="{{ url_for('ejercicio2') }}"
+              method="POST">
+
+            <!-- Primer nombre -->
+            <label for="nombre1">Nombre 1:</label>
+            <input type="text"
+                   id="nombre1"
+                   name="nombre1"
+                   pattern=" *[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+( +[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)* *"
+                   title="Ingrese solo letras, tildes, ñ, ü y espacios entre nombres."
+                   required>
+
+            <!-- Segundo nombre -->
+            <label for="nombre2">Nombre 2:</label>
+            <input type="text"
+                   id="nombre2"
+                   name="nombre2"
+                   pattern=" *[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+( +[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)* *"
+                   title="Ingrese solo letras, tildes, ñ, ü y espacios entre nombres."
+                   required>
+
+            <!-- Tercer nombre -->
+            <label for="nombre3">Nombre 3:</label>
+            <input type="text"
+                   id="nombre3"
+                   name="nombre3"
+                   pattern=" *[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+( +[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)* *"
+                   title="Ingrese solo letras, tildes, ñ, ü y espacios entre nombres."
+                   required>
+
+            <button type="submit">Enviar</button>
+
+        </form>
+
+        <!-- Mensajes de error generados por Flask -->
+        {% if error is defined %}
+            <p role="alert">{{ error }}</p>
+        {% endif %}
+
+        <!-- Resultados de la comparación -->
+        {% if nombre_mayor is defined and
+              cantidad_caracteres is defined %}
+
+            <div class="resultado-nombres">
+
+                <p>
+                    El nombre con mayor cantidad de
+                    caracteres es : {{ nombre_mayor }}
+                </p>
+
+                <p>
+                    El nombre tiene :
+                    {{ cantidad_caracteres }} caracteres
+                </p>
+
+            </div>
+
+        {% endif %}
+
+    </main>
+
+</body>
+</html>

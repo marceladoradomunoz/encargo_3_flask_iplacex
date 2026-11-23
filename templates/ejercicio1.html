@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Notas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navegación superior entre páginas -->
+    <nav class="navegacion-superior" aria-label="Navegación entre ejercicios">
+        <ul class="navegacion-lista">
+
+            <li>
+                <a href="{{ url_for('inicio') }}"
+                   class="enlace-navegacion">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         aria-hidden="true">
+                        <path d="m3 10 9-7 9 7"/>
+                        <path d="M5 9v12h14V9"/>
+                        <path d="M9 21v-7h6v7"/>
+                    </svg>
+
+                    Home
+                </a>
+            </li>
+
+            <li class="separador-navegacion" aria-hidden="true">
+                |
+            </li>
+
+            <li>
+                <a href="{{ url_for('ejercicio2') }}"
+                   class="enlace-navegacion">
+                    Ejercicio 2
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <!-- Formulario del Ejercicio 1 -->
+    <main>
+
+        <h2>Formulario de Notas</h2>
+
+        <form action="{{ url_for('ejercicio1') }}" method="POST">
+
+            <label for="nota1">Nota 1:</label>
+            <input type="number"
+                   id="nota1"
+                   name="nota1"
+                   min="10"
+                   max="70"
+                   step="any"
+                   required>
+
+            <label for="nota2">Nota 2:</label>
+            <input type="number"
+                   id="nota2"
+                   name="nota2"
+                   min="10"
+                   max="70"
+                   step="any"
+                   required>
+
+            <label for="nota3">Nota 3:</label>
+            <input type="number"
+                   id="nota3"
+                   name="nota3"
+                   min="10"
+                   max="70"
+                   step="any"
+                   required>
+
+            <label for="asistencia">Asistencia (%):</label>
+            <input type="number"
+                   id="asistencia"
+                   name="asistencia"
+                   min="0"
+                   max="100"
+                   step="any"
+                   required>
+
+            <button type="submit">Enviar</button>
+
+        </form>
+
+        <!-- Mensajes de error generados por Flask -->
+        {% if error is defined %}
+            <p role="alert">{{ error }}</p>
+        {% endif %}
+
+        <!-- Resultados del cálculo sin redondeo -->
+        {% if promedio is defined and estado is defined %}
+            <p>{{ promedio }}</p>
+            <p>{{ estado }}</p>
+        {% endif %}
+
+    </main>
+
+</body>
+</html>

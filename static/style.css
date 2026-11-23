@@ -1,0 +1,300 @@
+
+/* =========================================
+   ESTILOS GENERALES
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================================
+   MENÚ PRINCIPAL
+   ========================================= */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 55px;
+    padding: 10px;
+    background-color: #078bfa;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: underline;
+    border-radius: 9px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.boton:hover {
+    background-color: #0072d6;
+}
+
+/* =========================================
+   NAVEGACIÓN SUPERIOR - MATERIAL DESIGN
+   ========================================= */
+
+.navegacion-superior {
+    position: fixed;
+    top: 20px;
+    left: 24px;
+    z-index: 10;
+}
+
+.navegacion-lista {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.enlace-navegacion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 9px 13px;
+
+    color: #1976d2;
+    background-color: transparent;
+
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    transition:
+        color 220ms ease-in-out,
+        background-color 220ms ease-in-out;
+}
+
+/* Icono de Home */
+
+.enlace-navegacion svg {
+    width: 17px;
+    height: 17px;
+    stroke: currentColor;
+}
+
+/* Transición de colores Material Design */
+
+.enlace-navegacion:hover {
+    color: #0d47a1;
+    background-color: #e3f2fd;
+}
+
+/* Accesibilidad mediante teclado */
+
+.enlace-navegacion:focus-visible {
+    color: #0d47a1;
+    background-color: #e3f2fd;
+    outline: 2px solid #1976d2;
+    outline-offset: 2px;
+}
+
+/* Indicador entre enlaces */
+
+.separador-navegacion {
+    color: #90a4ae;
+    font-size: 16px;
+    user-select: none;
+}
+
+/* =========================================
+   TARJETAS DE FORMULARIOS
+   ========================================= */
+
+main:has(form) {
+    display: block;
+    width: 360px;
+    max-width: 100%;
+    padding: 24px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================================
+   FORMULARIO DE NOTAS
+   ========================================= */
+
+h2 {
+    margin-top: 10px;
+    margin-bottom: 22px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+form {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-top: 13px;
+    margin-bottom: 6px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+input {
+    display: block;
+    width: 100%;
+    height: 39px;
+    padding: 9px;
+    font-size: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background-color: white;
+}
+
+/* =========================================
+   BOTÓN ENVIAR
+   ========================================= */
+
+button {
+    margin-top: 17px;
+    padding: 10px 17px;
+    background-color: #078bfa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #0072d6;
+}
+
+/* =========================================
+   RESULTADOS DEL EJERCICIO 1
+   ========================================= */
+
+main:has(form) p {
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+/* =========================================
+   FORMULARIO DE NOMBRES
+   ========================================= */
+
+main.formulario-nombres {
+    width: 310px;
+    max-width: 100%;
+    padding: 22px;
+    border-radius: 10px;
+}
+
+.formulario-nombres form {
+    text-align: center;
+}
+
+.formulario-nombres label {
+    text-align: center;
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 13px;
+    margin-bottom: 7px;
+}
+
+.formulario-nombres input {
+    height: 39px;
+    font-size: 15px;
+}
+
+.formulario-nombres button {
+    margin-top: 18px;
+}
+
+/* =========================================
+   RESULTADOS DEL EJERCICIO 2
+   ========================================= */
+
+.formulario-nombres .resultado-nombres {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.formulario-nombres .resultado-nombres p {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.formulario-nombres p {
+    text-align: center;
+}
+
+/* =========================================
+   PANTALLAS PEQUEÑAS
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 75px 15px 25px;
+    }
+
+    .navegacion-superior {
+        top: 12px;
+        left: 12px;
+    }
+
+    .enlace-navegacion {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    main:has(form) {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+}
+
+/* =========================================
+   ACCESIBILIDAD: MOVIMIENTO REDUCIDO
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .enlace-navegacion,
+    .boton,
+    button {
+        transition: none;
+    }
+}
